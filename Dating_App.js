@@ -37,9 +37,13 @@ console.log(screen.children);
 //Survey------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 var userDataForm = document.createElement("FORM");
 var testInput = document.createElement("INPUT");
+
 testInput.setAttribute("type","text");
 testInput.name = "test1";
 testInput.value = "TESTING";
+userDataForm.appendChild(testInput);
+document.body.appendChild(userDataForm);
+
 userDataForm.submit();
 
 
