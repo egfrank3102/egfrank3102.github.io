@@ -2,7 +2,9 @@
 var GROUP_ONE = ["pictures/1.1.1.jpg","pictures/1.1.2.jpg","pictures/1.1.3.jpg","pictures/1.1.4.jpg","pictures/1.1.5.jpg","pictures/1.2.1.jpg","pictures/1.2.2.jpg","pictures/1.2.3.jpg","pictures/1.2.4.jpg","pictures/1.2.5.jpg"
 ,"pictures/1.3.1.jpg","pictures/1.3.2.jpg","pictures/1.3.3.jpg","pictures/1.3.4.jpg","pictures/1.3.5.jpg","pictures/1.4.1.jpg","pictures/1.4.2.jpg","pictures/1.4.3.jpg","pictures/1.4.4.jpg","pictures/1.4.5.jpg","pictures/1.5.1.jpg"
 ,"pictures/1.5.2.jpg","pictures/1.5.3.jpg","pictures/1.5.4.jpg","pictures/1.5.5.jpg"];
-var GROUP_TWO = [];
+var GROUP_TWO = ["pictures/2.1.1.jpg","pictures/2.1.2.jpg","pictures/2.1.3.jpg","pictures/2.1.4.jpg","pictures/2.1.5.jpg","pictures/2.2.1.jpg","pictures/2.2.2.jpg","pictures/2.2.3.jpg","pictures/2.2.4.jpg","pictures/2.2.5.jpg"
+,"pictures/2.3.1.jpg","pictures/2.3.2.jpg","pictures/2.3.3.jpg","pictures/2.3.4.jpg","pictures/2.3.5.jpg","pictures/2.4.1.jpg","pictures/2.4.2.jpg","pictures/2.4.3.jpg","pictures/2.4.4.jpg","pictures/2.4.5.jpg","pictures/2.5.1.jpg"
+,"pictures/2.5.2.jpg","pictures/2.5.3.jpg","pictures/2.5.4.jpg","pictures/2.5.5.jpg"];
 
 var QUESTION_ONE = "What is your race?";
 var Q_ONE_ANSWERS=["","White","Black","Hispanic","Asian","Middle Eastern","Mixed-Race","Other"];
@@ -33,6 +35,14 @@ console.log(screen.children);
 
 
 //Survey------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+var userDataForm = document.createElement("FORM");
+var testInput = document.createElement("INPUT");
+testInput.setAttribute("type","text");
+testInput.name = "test1";
+testInput.value = "TESTING";
+userDataForm.submit();
+
+
 function createQuestion(id,questionText,optionList){
 var q = document.createElement("DIV");
 q.id=id;
