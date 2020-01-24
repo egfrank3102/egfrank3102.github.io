@@ -150,7 +150,7 @@ setPosition("test", x.offsetWidth/4,x.offsetHeight/16,x.offsetWidth/2,x.offsetHe
 yesButton = document.createElement("BUTTON");
 yesButton.id = "yesButton";
 yesButton.style.position = "fixed";
-yesButton.style.left = x.offsetWidth/2 +"px";
+yesButton.style.left = x.offsetWidth/2 + "px";
 yesButton.style.top = x.offsetHeight*15/16 + "px";
 yesButton.style.backgroundColor = "green";
 yesButton.style.width = x.offsetWidth/4 + "px";
