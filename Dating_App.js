@@ -36,7 +36,7 @@ console.log(screen.children);
 
 //Survey------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/*
+
 var userDataForm = document.createElement("FORM");
 var testInput = document.createElement("INPUT");
 userDataForm.target = "_blank";
@@ -46,7 +46,7 @@ testInput.value = "TESTING";
 userDataForm.appendChild(testInput);
 document.body.appendChild(userDataForm);
 testInput.style.display = "none";
-*/
+
 
 function createQuestion(id,questionText,optionList){
 var q = document.createElement("DIV");
