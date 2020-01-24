@@ -172,7 +172,7 @@ noButton.textContent = "NO";
 document.body.appendChild(noButton);
 
 yesButton.addEventListener("click",updatePicture);
-noButton.addEventListener("click",updatePicture);
+noButton.addEventListener("click",updatePicture);//This didn't work:( 
 window.addEventListener("resize",updatePage);
 
 }
