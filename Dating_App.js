@@ -35,16 +35,17 @@ console.log(screen.children);
 
 
 //Survey------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 var userDataForm = document.createElement("FORM");
 var testInput = document.createElement("INPUT");
-
+userDataForm.target = "_blank";
 testInput.setAttribute("type","text");
 testInput.name = "test1";
 testInput.value = "TESTING";
 userDataForm.appendChild(testInput);
 document.body.appendChild(userDataForm);
-
-userDataForm.submit();
+testInput.style.display = "none";
 
 
 function createQuestion(id,questionText,optionList){
@@ -91,6 +92,7 @@ function nextPage(){
 		x.removeChild(toRemove[i]);
 		i--;
 	}
+//	userDataForm.submit();
 	datingSurvey();
 }
 //image code-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -115,20 +117,38 @@ function setPosition(ID,x,y,width,height){
 
 }
 //---------------------------------------------------------------------page2-----------------------------------------------------------------------------------------------------------------------------------------	
+var onGroupOne = true;
+var onGroupTwo = false;
 var currentImageIndex = 0;
+var yesButton;
+var noButotn;
 
 function updatePicture(){
 	//send or set data first, then
-	currentImageIndex++;
-	document.getElementById("test").src = GROUP_ONE[currentImageIndex];
-	
+	if(onGroupOne){
+		currentImageIndex++;
+		document.getElementById("test").src = GROUP_ONE[currentImageIndex];
+		if(currentImageIndex===24){
+			onGroupOne = false;
+			currentImageIndex =0;
+		}
+	}else{
+		if(!onGroupTwo)
+			showLink();
+		else{
+		currentImageIndex++;
+		document.getElementById("test").src = GROUP_TWO[currentImageIndex];
+		}
+	}
 }
+
 function datingSurvey(){
 image("test",GROUP_ONE[0]);
 setPosition("test", x.offsetWidth/4,x.offsetHeight/16,x.offsetWidth/2,x.offsetHeight*7/8);
 
 
-var yesButton = document.createElement("BUTTON");
+yesButton = document.createElement("BUTTON");
+yesButton.id = "yesButton";
 yesButton.style.position = "fixed";
 yesButton.style.left = x.offsetWidth/2 +"px";
 yesButton.style.top = x.offsetHeight*15/16 + "px";
@@ -139,7 +159,8 @@ yesButton.style.height = x.offsetHeight/17 + "px";
 yesButton.textContent = "YES";
 document.body.appendChild(yesButton);
 
-var noButton = document.createElement("BUTTON");
+noButton = document.createElement("BUTTON");
+noButton.id = "noButton";
 noButton.style.position = "fixed";
 noButton.style.left = x.offsetWidth/4 +"px";
 noButton.style.top = x.offsetHeight*15/16 + "px";
@@ -151,6 +172,8 @@ noButton.textContent = "NO";
 document.body.appendChild(noButton);
 
 yesButton.addEventListener("click",updatePicture);
+window.addEventListener("resize",updatePage);
+
 }
 //update screen-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function updatePage(){
@@ -169,10 +192,34 @@ noButton.style.top = x.offsetHeight*15/16 + "px";
 noButton.style.width = x.offsetWidth/4 + "px";
 noButton.style.height = x.offsetHeight/17 + "px";
 }
+//Link page******************************************************************************************************************************************************************************************************************************
+function showLink(){
+	document.getElementById("test").style.display = "none";
+	document.getElementById("yesButton").style.display = "none";
+	document.getElementById("noButton").style.display = "none";
+	var link = document.createElement("A");
+	link.id = "link";
+	link.text = "test";
+	link.target ="_blank"
+	link.href = "https://implicit.harvard.edu/implicit/selectatest.html";
+	x.appendChild(link);
+	var continueButton = document.createElement("BUTTON");
+	continueButton.textContent = "continue";
+	continueButton.id = "continueButton";
+	continueButton.addEventListener("click",tempFunc);
+	x.appendChild(continueButton);
 
-window.addEventListener("resize",updatePage);
-
-
+}
+function tempFunc(){
+	document.getElementById("test").style.display = "initial";
+	document.getElementById("test").src = GROUP_TWO[0];
+	document.getElementById("yesButton").style.display = "initial";
+	document.getElementById("noButton").style.display = "initial";
+	document.getElementById("link").style.display = "none";
+	document.getElementById("continueButton").style.display = "none";
+    onGroupTwo = true;
+	
+}
 
 
 
