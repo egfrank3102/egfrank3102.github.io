@@ -356,3 +356,4 @@ function endScreen(){
 	var finalDivText = document.createTextNode("Thank you for completing this survey.");
 	finalDiv.appendChild(finalDivText);
 }
+//Update 1.3.0
