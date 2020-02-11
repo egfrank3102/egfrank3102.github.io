@@ -416,9 +416,9 @@ function submitResponse(response){
 	currentImageId += Math.floor((currentImageGroupId)/5);
 	currentImageGroupId = (currentImageGroupId)*Math.ceil((currentImageGroupId%5)/5)+1;
 	const data = {
-		userId: "" + UUID,
-		userResponse: response,
-		imageId: currentImage
+		id: "" + UUID,
+		candidateId: currentImage,
+		choice: response
 	};
 	console.log(data);
 	fetch('https://projectkazusa.azurewebsites.net/api/SubmitResponse?code=5aYy6Dz4dTBsHHeuwhaTrd7RAZY/HvrHNjzcNRwSJTcAKvbYq8qQUw==', {
