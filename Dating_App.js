@@ -1,22 +1,23 @@
 //****************************************************************************************CONFIG****************************************************************************************************************************************
-var GROUP_ONE = ["pictures/1.1.1.jpg","pictures/1.1.2.jpg","pictures/1.1.3.jpg","pictures/1.1.4.jpg","pictures/1.1.5.jpg","pictures/1.2.1.jpg","pictures/1.2.2.jpg","pictures/1.2.3.jpg","pictures/1.2.4.jpg","pictures/1.2.5.jpg"
-,"pictures/1.3.1.jpg","pictures/1.3.2.jpg","pictures/1.3.3.jpg","pictures/1.3.4.jpg","pictures/1.3.5.jpg","pictures/1.4.1.jpg","pictures/1.4.2.jpg","pictures/1.4.3.jpg","pictures/1.4.4.jpg","pictures/1.4.5.jpg","pictures/1.5.1.jpg"
-,"pictures/1.5.2.jpg","pictures/1.5.3.jpg","pictures/1.5.4.jpg","pictures/1.5.5.jpg"];
-var GROUP_TWO = ["pictures/2.1.1.jpg","pictures/2.1.2.jpg","pictures/2.1.3.jpg","pictures/2.1.4.jpg","pictures/2.1.5.jpg","pictures/2.2.1.jpg","pictures/2.2.2.jpg","pictures/2.2.3.jpg","pictures/2.2.4.jpg","pictures/2.2.5.jpg"
-,"pictures/2.3.1.jpg","pictures/2.3.2.jpg","pictures/2.3.3.jpg","pictures/2.3.4.jpg","pictures/2.3.5.jpg","pictures/2.4.1.jpg","pictures/2.4.2.jpg","pictures/2.4.3.jpg","pictures/2.4.4.jpg","pictures/2.4.5.jpg","pictures/2.5.1.jpg"
-,"pictures/2.5.2.jpg","pictures/2.5.3.jpg","pictures/2.5.4.jpg","pictures/2.5.5.jpg"];
+const GROUP_ONE = ["pictures/1.1.1.jpg","pictures/1.2.1.jpg","pictures/1.3.1.jpg","pictures/1.4.1.jpg","pictures/1.5.1.jpg","pictures/1.1.2.jpg","pictures/1.2.2.jpg","pictures/1.3.2.jpg","pictures/1.4.2.jpg","pictures/1.5.2.jpg"
+,"pictures/1.1.3.jpg","pictures/1.2.3.jpg","pictures/1.3.3.jpg","pictures/1.4.3.jpg","pictures/1.5.3.jpg","pictures/1.1.4.jpg","pictures/1.2.4.jpg","pictures/1.3.4.jpg","pictures/1.4.4.jpg","pictures/1.5.4.jpg","pictures/1.1.5.jpg"
+,"pictures/1.2.5.jpg","pictures/1.3.5.jpg","pictures/1.4.5.jpg","pictures/1.5.5.jpg"];
+const GROUP_TWO = ["pictures/2.1.1.jpg","pictures/2.2.1.jpg","pictures/2.3.1.jpg","pictures/2.4.1.jpg","pictures/2.5.1.jpg","pictures/2.1.2.jpg","pictures/2.2.2.jpg","pictures/2.3.2.jpg","pictures/2.4.2.jpg","pictures/2.5.2.jpg"
+,"pictures/2.1.3.jpg","pictures/2.2.3.jpg","pictures/2.3.3.jpg","pictures/2.4.3.jpg","pictures/2.5.3.jpg","pictures/2.1.4.jpg","pictures/2.2.4.jpg","pictures/2.3.4.jpg","pictures/2.4.4.jpg","pictures/2.5.4.jpg","pictures/2.1.5.jpg"
+,"pictures/2.2.5.jpg","pictures/2.3.5.jpg","pictures/2.4.5.jpg","pictures/2.5.5.jpg"];
 
-var QUESTION_ONE = "What is your race?";
-var Q_ONE_ANSWERS=["","White","Black","Hispanic","Asian","Middle Eastern","Mixed-Race","Other"];
-var QUESTION_TWO = "What is your gender identity?";
-var Q_TWO_ANSWERS=["","Female","Male","Non-inBary"];
-var QUESTION_THREE = "What is your sexual orientation?";
-var Q_THREE_ANSWERS=["","Gay","Straight","Bisexual","Asexual","Other"];
-var QUESTION_FOUR = "What is your age?";
-var Q_FOUR_ANSWERS=["","24-under", "25-35","36-45","46-55","56-65","65-older"];
-var QUESTION_FIVE = "What is your relationship status?";
-var Q_FIVE_ANSWERS=["","Single","In a relationship", "Married"];
+const QUESTION_ONE = "What is your race?";
+const Q_ONE_ANSWERS=["","White","Black","Hispanic","Asian","Middle Eastern","Mixed-Race","Other"];
+const QUESTION_TWO = "What is your gender identity?";
+const Q_TWO_ANSWERS=["","Female","Male","Non-Binary"];
+const QUESTION_THREE = "What is your sexual orientation?";
+const Q_THREE_ANSWERS=["","Gay","Straight","Bisexual","Asexual","Other"];
+const QUESTION_FOUR = "What is your age?";
+const Q_FOUR_ANSWERS=["","24-under", "25-35","36-45","46-55","56-65","65-older"];
+const QUESTION_FIVE = "What is your relationship status?";
+const Q_FIVE_ANSWERS=["","Single","In a relationship", "Married"];
 //**************************************************************************************************************************************************************************************************************************************
+const UUID = create_UUID();
 var d0 = document.createElement("DIV");
 d0.style.position = "fixed";
 //d0.style.top = 100 +"px";
@@ -61,8 +62,9 @@ d0.appendChild(d1Text);
 
 var disclaimerText1 = `Data gathered from this survey will be used for a research project on online dating.`;
 
-var br1 = document.createElement("br");
-var br2 = document.createElement("br");
+var br1_0 = document.createElement("br");
+var br1_1 = document.createElement("br");
+var br1_2 = [];
 
 
 var disclaimerText2 = 
@@ -72,13 +74,20 @@ var disclaimerText2 =
 " destroyed after the study is completed.";
 var d2Text = document.createTextNode(disclaimerText1);
 d1.appendChild(d2Text);
-d1.appendChild(br1);
-d1.appendChild(br2);
+d1.appendChild(br1_0);
+d1.appendChild(br1_1);
 var d3Text = document.createTextNode(disclaimerText2);
 d1.appendChild(d3Text);
 
+var disclaimerText3 = "By pressing continue, you consent to the use of your data in this research project";
+for(var i =0; i<9; i++){
+	br1_2.push(makeBR());
+	d1.appendChild(br1_2[i]);
+}var d4Text = document.createTextNode(disclaimerText3);
+d1.appendChild(d4Text);
+
 var br = []; 
-for(var i =0; i<11; i++){
+for(var i =0; i<2; i++){
 	br.push(document.createElement("br"));
 	d1.appendChild(br[i]);
 }
@@ -92,6 +101,7 @@ b1.style.backgroundColor = "#3B074B";
 b1.style.color = "#FFFFFF";
 d1.appendChild(b1);
 b1.addEventListener("click",toSurvey);
+var responseList = [];
 function toSurvey(){
 	document.body.removeChild(d0);
 	test42();
@@ -109,17 +119,6 @@ document.body.appendChild(x);
 x.id = "test1";
 x.style.color = "3B074B";
 //Survey------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-var userDataForm = document.createElement("FORM");
-var testInput = document.createElement("INPUT");
-userDataForm.target = "_blank";
-testInput.setAttribute("type","text");
-testInput.name = "test1";
-testInput.value = "TESTING";
-userDataForm.appendChild(testInput);
-document.body.appendChild(userDataForm);
-testInput.style.display = "none";
-
-
 createQuestion("q1",QUESTION_ONE, Q_ONE_ANSWERS);
 createQuestion("q2",QUESTION_TWO, Q_TWO_ANSWERS);
 createQuestion("q1",QUESTION_THREE, Q_THREE_ANSWERS);
@@ -128,7 +127,6 @@ createQuestion("q1",QUESTION_FIVE, Q_FIVE_ANSWERS);
 
 //INSTRUCTION TEXT--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 var instrTxtDiv = document.createElement("DIV");
-instrTxtDiv.id = "InstrTxt";
 var instructionTxt = document.createTextNode("You will be shown a collection of images. Please select if you would swipe right/match with each profile by using the \"yes\" button, and indicate you would swipe left/ignore by using the \"no\" button.");
 instrTxtDiv.appendChild(instructionTxt);
 x.appendChild(instrTxtDiv);
@@ -146,21 +144,33 @@ x.appendChild(nextButton);
 nextButton.addEventListener("click",nextPage);
 }
 function nextPage(){
+	for(var i =0; i<responseList.length; i++){
+		if(responseList[i].value == ""){
+			var errorTxtDiv = document.createElement("DIV");
+			x.appendChild(document.createElement("br"));
+			errorTxtDiv.style.color = "red";
+			var errorTxt = document.createTextNode("Please enter a response for all fields.");
+			errorTxtDiv.appendChild(errorTxt);
+			x.appendChild(errorTxtDiv);
+			return;
+		}
+	}
 	var toRemove = x.children;
 	for(var i =0; i<toRemove.length;i++){
 		x.removeChild(toRemove[i]);
 		i--;
 	}
-//	userDataForm.submit();
+	submitUserData();
 	datingSurvey();
+	
 }
 //image code-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function image(ID,source){
-var img = document.createElement("IMG");
-img.id = ID
-document.body.appendChild(img);
-img.src = source;
-img.style.position = "fixed";
+	var img = document.createElement("IMG");
+	img.id = ID
+	document.body.appendChild(img);
+	img.src = source;
+	img.style.position = "fixed";
 }
 
 
@@ -179,6 +189,8 @@ function setPosition(ID,x,y,width,height){
 var onGroupOne = true;
 var onGroupTwo = false;
 var currentImageIndex = 0;
+var currentImageGroupId = 1;
+var currentImageId = 1;
 var yesButton;
 var noButotn;
 
@@ -233,8 +245,8 @@ noButton.style.height = x.offsetHeight/17 + "px";
 noButton.textContent = "NO";
 document.body.appendChild(noButton);
 
-yesButton.addEventListener("click",updatePicture);
-noButton.addEventListener("click",updatePicture);//This didn't work:( 
+yesButton.addEventListener("click",yesButtonFunc);
+noButton.addEventListener("click",noButtonFunc);
 window.addEventListener("resize",updatePage);
 
 }
@@ -255,6 +267,15 @@ noButton.style.top = x.offsetHeight*15/16 + "px";
 noButton.style.width = x.offsetWidth/4 + "px";
 noButton.style.height = x.offsetHeight/17 + "px";
 }
+//Yes/no button functions****************************************************************************************************************************************************************************************************************
+function yesButtonFunc(){
+	submitResponse("yes");
+	updatePicture();
+}
+function noButtonFunc(){
+	submitResponse("no");
+	updatePicture();
+}
 //Link page******************************************************************************************************************************************************************************************************************************
 function showLink(){
 	document.getElementById("test").style.display = "none";
@@ -264,7 +285,7 @@ function showLink(){
 	div3.id = "linkDiv";
 	x.appendChild(div3);
 	
-	var div3InstrText = document.createTextNode("You have completed part one of the survey, please click on the link and complete the Skin Tone IAT. Then, return to this page to finish the survey with a new set of images.");
+	var div3InstrText = document.createTextNode("You have completed part one of the survey, please click on the link and read the disclaimers. Click \"I wish to proceed\" to the select a test menu and select the Skin-tone IAT. Then, return to this page to finish the survey with a new set of images.");
 	div3.appendChild(div3InstrText);
 	div3.appendChild(makeBR());
 	div3.appendChild(makeBR());
@@ -273,7 +294,7 @@ function showLink(){
 	link.id = "link";
 	link.text = "Implicit Bias Test";
 	link.target ="_blank"
-	link.href = "https://implicit.harvard.edu/implicit/selectatest.html";
+	link.href = "https://implicit.harvard.edu/implicit/takeatest.html";
 	
 	div3.appendChild(link);
 	div3.appendChild(makeBR());
@@ -281,7 +302,7 @@ function showLink(){
 	
 	var continueButton = document.createElement("BUTTON");
 	continueButton.style.display = "none";
-	continueButton.textContent = "continue";
+	continueButton.textContent = "Continue";
 	continueButton.id = "continueButton";
 	continueButton.addEventListener("click",tempFunc);
 	div3.appendChild(continueButton);
@@ -298,6 +319,16 @@ function tempFunc(){
 	document.getElementById("noButton").style.display = "initial";
     onGroupTwo = true;
 	
+}
+//Obtained from https://www.w3resource.com/javascript-exercises/javascript-math-exercise-23.php
+function create_UUID(){
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
 }
 
 function createQuestion(id,questionText,optionList){
@@ -324,6 +355,7 @@ q.appendChild(breakLine);
 q.appendChild(dropdown);
 var breakLine2 = document.createElement("BR");
 x.appendChild(breakLine2);
+responseList.push(dropdown);
 }
 
 function createTextBorder(){
@@ -356,4 +388,42 @@ function endScreen(){
 	var finalDivText = document.createTextNode("Thank you for completing this survey.");
 	finalDiv.appendChild(finalDivText);
 }
-//Update 1.3.0
+//Data submission Functions*******************************************************************************************************************************************************************************************************************************
+function submitUserData(){
+	var race = responseList[0].value;
+	var age = responseList[3].value;
+	var sexualOrientation = responseList[2].value;
+	var gender = responseList [1].value;
+	var relationship = responseList[4].value;
+
+	const data = {
+		id: "" + UUID,
+		race: race,
+		age: age,
+		sexualOrientation: sexualOrientation,
+		gender: gender,
+		relationshipTest: relationship
+	};
+	console.log(data);
+	fetch('https://projectkazusa.azurewebsites.net/api/SubmitUserInfo?code=AfkuJ6eD4eBs8/hWegQjhvCsnOajhQ5KOWdnxSTqiFf/ikLItMNcPg==', {
+		method: 'POST', // or 'PUT'
+		body: JSON.stringify(data),
+		mode: 'no-cors'
+	})
+}
+function submitResponse(response){
+	var currentImage = currentImageGroupId + "." + currentImageId;
+	currentImageId += Math.floor((currentImageGroupId)/5);
+	currentImageGroupId = (currentImageGroupId)*Math.ceil((currentImageGroupId%5)/5)+1;
+	const data = {
+		userId: "" + UUID,
+		userResponse: response,
+		imageId: currentImage
+	};
+	console.log(data);
+	fetch('https://projectkazusa.azurewebsites.net/api/SubmitResponse?code=5aYy6Dz4dTBsHHeuwhaTrd7RAZY/HvrHNjzcNRwSJTcAKvbYq8qQUw==', {
+		method: 'POST', // or 'PUT'
+		body: JSON.stringify(data),
+		mode: 'no-cors'
+	})
+}
